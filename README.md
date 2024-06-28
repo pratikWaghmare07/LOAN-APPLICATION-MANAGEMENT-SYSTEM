@@ -72,6 +72,4 @@ The UML diagram below provides an overview of the system architecture and relati
 
 - **Role**: User roles such as BORROWER, LOAN_OFFICER, and ADMIN.
 - **LoanStatus**: Status of a loan such as PENDING, APPROVED, REJECTED, ACTIVE, CLOSED, and DEFAULTED.
-- **RepaymentStatus**: Status of a repayment such as PENDING, PAID, and OVERDUE.
-- **NotificationType**: Types of notifications like EMAIL and SMS.
-- **ReportType**: Types of reports like LOAN_SUMMARY, OVERDUE_PAYMENTS, and REPAYMENT_TRENDS.
+
