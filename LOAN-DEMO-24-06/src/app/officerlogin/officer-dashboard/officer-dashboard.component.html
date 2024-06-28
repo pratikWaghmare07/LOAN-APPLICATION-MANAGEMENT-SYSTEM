@@ -1,0 +1,62 @@
+<div class="container mt-5">
+    <h2 class="text-center" style="margin-top: 15vh;">Borrower Application Data</h2>
+    <table class="table table-bordered" style="margin-bottom: 30vh;">
+      <thead>
+        <tr>
+          <th>Full Name</th>
+          <th>Date of Birth</th>
+          <th>Gender</th>
+          <th>Marital Status</th>
+          <th>Email Address</th>
+          <th>Phone Number</th>
+          <th>Street Address</th>
+          <th>City</th>
+          <th>State</th>
+          <th>ZIP Code</th>
+          <th>PAN Number</th>
+          <th>Aadhaar Number</th>
+          <th>Employment Status</th>
+          <th>Employer Name</th>
+          <th>Employer Address</th>
+          <th>Job Title</th>
+          <th>Annual Income</th>
+          <th>Work Experience</th>
+          <th>Loan Amount</th>
+          <th>Loan Purpose</th>
+          <th>Loan Tenure</th>
+          <th>Bank Name</th>
+          <th>Account Number</th>
+          <th>IFSC Code</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let application of loanApplications">
+          <td>{{ application.fullName }}</td>
+          <td>{{ application.dateOfBirth }}</td>
+          <td>{{ application.gender }}</td>
+          <td>{{ application.maritalStatus }}</td>
+          <td>{{ application.emailAddress }}</td>
+          <td>{{ application.phoneNumber }}</td>
+          <td>{{ application.streetAddress }}</td>
+          <td>{{ application.city }}</td>
+          <td>{{ application.state }}</td>
+          <td>{{ application.zipCode }}</td>
+          <td>{{ application.panNumber }}</td>
+          <td>{{ application.aadhaarNumber }}</td>
+          <td>{{ application.employmentStatus }}</td>
+          <td>{{ application.employerName }}</td>
+          <td>{{ application.employerAddress }}</td>
+          <td>{{ application.jobTitle }}</td>
+          <td>{{ application.annualIncome }}</td>
+          <td>{{ application.workExperience }}</td>
+          <td>{{ application.loanAmount }}</td>
+          <td>{{ application.loanPurpose }}</td>
+          <td>{{ application.loanTenure }}</td>
+          <td>{{ application.bankName }}</td>
+          <td>{{ application.accountNumber }}</td>
+          <td>{{ application.ifscCode }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

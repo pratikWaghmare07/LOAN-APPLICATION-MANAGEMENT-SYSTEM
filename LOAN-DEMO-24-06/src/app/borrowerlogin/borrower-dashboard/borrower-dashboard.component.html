@@ -1,0 +1,151 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <h2 class="text-center" style="margin-top: 40px;">Loan Application Form</h2>
+        <form (ngSubmit)="onSubmit()" #loanForm="ngForm">
+          <h4>Personal Information</h4>
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" class="form-control form-control-md" id="fullName" [(ngModel)]="formObj.fullName" name="fullName" required>
+          </div>
+          <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" class="form-control form-control-md" id="dob" [(ngModel)]="formObj.dateOfBirth" name="dateOfBirth" required>
+          </div>
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <select class="form-control form-control-md" id="gender" [(ngModel)]="formObj.gender" name="gender" required>
+              <option value="" disabled selected>Select</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="maritalStatus">Marital Status</label>
+            <select class="form-control form-control-md" id="maritalStatus" [(ngModel)]="formObj.maritalStatus" name="maritalStatus" required>
+              <option value="" disabled selected>Select</option>
+              <option value="Single">Single</option>
+              <option value="Married">Married</option>
+              <option value="Divorced">Divorced</option>
+              <option value="Widowed">Widowed</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" class="form-control form-control-md" id="email" [(ngModel)]="formObj.emailAddress" name="emailAddress" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" class="form-control form-control-md" id="phone" [(ngModel)]="formObj.phoneNumber" name="phoneNumber" required>
+          </div>
+          <div class="form-group">
+            <label for="address">Street Address</label>
+            <input type="text" class="form-control form-control-md" id="address" [(ngModel)]="formObj.streetAddress" name="streetAddress" required>
+          </div>
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" class="form-control form-control-md" id="city" [(ngModel)]="formObj.city" name="city" required>
+          </div>
+          <div class="form-group">
+            <label for="state">State</label>
+            <input type="text" class="form-control form-control-md" id="state" [(ngModel)]="formObj.state" name="state" required>
+          </div>
+          <div class="form-group">
+            <label for="zip">ZIP Code</label>
+            <input type="text" class="form-control form-control-md" id="zip" [(ngModel)]="formObj.zipCode" name="zipCode" required>
+          </div>
+          <div class="form-group">
+            <label for="pan">PAN Number</label>
+            <input type="text" class="form-control form-control-md" id="pan" [(ngModel)]="formObj.panNumber" name="panNumber" required>
+          </div>
+          <div class="form-group">
+            <label for="aadhaar">Aadhaar Number</label>
+            <input type="text" class="form-control form-control-md" id="aadhaar" [(ngModel)]="formObj.aadhaarNumber" name="aadhaarNumber" required>
+          </div>
+  
+          <h4>Employment Details</h4>
+          <div class="form-group">
+            <label for="employmentStatus">Employment Status</label>
+            <select class="form-control form-control-md" id="employmentStatus" [(ngModel)]="formObj.employmentStatus" name="employmentStatus" required>
+              <option value="" disabled selected>Select</option>
+              <option value="Employed">Employed</option>
+              <option value="Self-employed">Self-employed</option>
+              <option value="Unemployed">Unemployed</option>
+              <option value="Retired">Retired</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="employerName">Employer Name</label>
+            <input type="text" class="form-control form-control-md" id="employerName" [(ngModel)]="formObj.employerName" name="employerName" required>
+          </div>
+          <div class="form-group">
+            <label for="employerAddress">Employer Street Address</label>
+            <input type="text" class="form-control form-control-md" id="employerAddress" [(ngModel)]="formObj.employerStreetAddress" name="employerStreetAddress" required>
+          </div>
+          <div class="form-group">
+            <label for="employerCity">City</label>
+            <input type="text" class="form-control form-control-md" id="employerCity" [(ngModel)]="formObj.employerCity" name="employerCity" required>
+          </div>
+          <div class="form-group">
+            <label for="employerState">State</label>
+            <input type="text" class="form-control form-control-md" id="employerState" [(ngModel)]="formObj.employerState" name="employerState" required>
+          </div>
+          <div class="form-group">
+            <label for="employerZip">ZIP Code</label>
+            <input type="text" class="form-control form-control-md" id="employerZip" [(ngModel)]="formObj.employerZipCode" name="employerZipCode" required>
+          </div>
+          <div class="form-group">
+            <label for="jobTitle">Job Title</label>
+            <input type="text" class="form-control form-control-md" id="jobTitle" [(ngModel)]="formObj.jobTitle" name="jobTitle" required>
+          </div>
+          <div class="form-group">
+            <label for="annualIncome">Annual Income</label>
+            <input type="number" class="form-control form-control-md" id="annualIncome" [(ngModel)]="formObj.annualIncome" name="annualIncome" required>
+          </div>
+          <div class="form-group">
+            <label for="workExperience">Work Experience (in years)</label>
+            <input type="number" class="form-control form-control-md" id="workExperience" [(ngModel)]="formObj.workExperience" name="workExperience" required>
+          </div>
+  
+          <h4>Loan Details</h4>
+          <div class="form-group">
+            <label for="loanAmount">Loan Amount</label>
+            <input type="number" class="form-control form-control-md" id="loanAmount" [(ngModel)]="formObj.loanAmount" name="loanAmount" required>
+          </div>
+          <div class="form-group">
+            <label for="loanPurpose">Loan Purpose</label>
+            <select class="form-control form-control-md" id="loanPurpose" [(ngModel)]="formObj.loanPurpose" name="loanPurpose" required>
+              <option value="" disabled selected>Select</option>
+              <option value="Personal Loan">Personal Loan</option>
+              <option value="Home Loan">Home Loan</option>
+              <option value="Auto Loan">Auto Loan</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="loanTenure">Loan Tenure (in years)</label>
+            <input type="number" class="form-control form-control-md" id="loanTenure" [(ngModel)]="formObj.loanTenure" name="loanTenure" required>
+          </div>
+  
+          <h4>Financial Details</h4>
+          <div class="form-group">
+            <label for="bankName">Bank Name</label>
+            <input type="text" class="form-control form-control-md" id="bankName" [(ngModel)]="formObj.bankName" name="bankName" required>
+          </div>
+          <div class="form-group">
+            <label for="accountNumber">Account Number</label>
+            <input type="text" class="form-control form-control-md" id="accountNumber" [(ngModel)]="formObj.accountNumber" name="accountNumber" required>
+          </div>
+          <div class="form-group">
+            <label for="ifscCode">IFSC Code</label>
+            <input type="text" class="form-control form-control-md" id="ifscCode" [(ngModel)]="formObj.ifscCode" name="ifscCode" required>
+          </div>
+  
+          <div class="text-center">
+            <button type="button" (click)="onSubmit()" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

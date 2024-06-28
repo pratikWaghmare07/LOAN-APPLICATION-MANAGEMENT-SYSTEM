@@ -1,0 +1,23 @@
+<div class="container mt-5" style="height: 100vh;">
+    <div class="row justify-content-center">
+        
+        <div class="col-md-6">
+            <form style="margin: 26vh auto;" >
+                <h1>Borrower Login</h1>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="text" [(ngModel)]="loginObj.username" name="username" class="form-control" id="email" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" [(ngModel)]="loginObj.password" name="EmailId"class="form-control" id="password" required>
+                </div>
+                <button type="button" class="btn btn-primary" (click)="onLogin()">Login</button>
+                <div class = "mt-3">
+                    <a href = "#" >Register</a>
+                    <a href = "ForgetPass.html" class="link-primary">Forgot Password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
