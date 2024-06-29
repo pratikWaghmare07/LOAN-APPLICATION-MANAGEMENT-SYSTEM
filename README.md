@@ -1,2 +1,2 @@
 # LOAN-APPLICATION-MANAGEMENT-SYSTEM
-Team of 3 people  developed loan management system.
+The Loan Management System is a web application designed to simplify and manage the process of loan applications, approvals, and repayments. Users can register as borrowers or loan officers, apply for loans, and track their repayment schedules. Loan officers review and approve or reject loan applications, generate reports, and manage notifications. The system supports email and SMS notifications, and provides a detailed overview of loan statuses and repayment trends, making the loan management process efficient and transparent.
