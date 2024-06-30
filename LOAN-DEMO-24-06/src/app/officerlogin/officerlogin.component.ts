@@ -18,7 +18,7 @@ export class OfficerloginComponent {
   constructor(private http: HttpClient, private router: Router) {}
 
   onLogin() {
-    this.http.post("http://localhost:8080/api/users/login", this.loginObj, { observe: 'response' }).subscribe({
+    this.http.post("http://localhost:8080/loanofficer/login", this.loginObj, { observe: 'response' }).subscribe({
       next: (res: any) => {
         if (res.status === 200) {
           alert("Login sucesssssss");

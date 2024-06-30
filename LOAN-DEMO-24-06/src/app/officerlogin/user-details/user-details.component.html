@@ -1,0 +1,49 @@
+<div class="container mt-6" style="margin-top: 18vh;">
+    <h3 class="text-center my-5">{{ loanApplication?.fullName }} Application Details</h3>
+    <div class="row" *ngIf="loanApplication; else noData">
+      <div class="col-md-6 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <p class="card-text"><strong>Full Name:</strong> {{ loanApplication.fullName }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3" *ngFor="let detail of [
+        {label: 'Date of Birth', value: loanApplication.dateOfBirth},
+        {label: 'Gender', value: loanApplication.gender},
+        {label: 'Marital Status', value: loanApplication.maritalStatus},
+        {label: 'Email Address', value: loanApplication.emailAddress},
+        {label: 'Phone Number', value: loanApplication.phoneNumber},
+        {label: 'Street Address', value: loanApplication.streetAddress},
+        {label: 'City', value: loanApplication.city},
+        {label: 'State', value: loanApplication.state},
+        {label: 'ZIP Code', value: loanApplication.zipCode},
+        {label: 'PAN Number', value: loanApplication.panNumber},
+        {label: 'Aadhaar Number', value: loanApplication.aadhaarNumber},
+        {label: 'Employment Status', value: loanApplication.employmentStatus},
+        {label: 'Employer Name', value: loanApplication.employerName},
+        {label: 'Employer Address', value: loanApplication.employerAddress},
+        {label: 'Job Title', value: loanApplication.jobTitle},
+        {label: 'Annual Income', value: loanApplication.annualIncome},
+        {label: 'Work Experience', value: loanApplication.workExperience},
+        {label: 'Loan Amount', value: loanApplication.loanAmount},
+        {label: 'Loan Purpose', value: loanApplication.loanPurpose},
+        {label: 'Loan Tenure', value: loanApplication.loanTenure},
+        {label: 'Bank Name', value: loanApplication.bankName},
+        {label: 'Account Number', value: loanApplication.accountNumber},
+        {label: 'IFSC Code', value: loanApplication.ifscCode}
+      ]">
+        <div class="card">
+          <div class="card-body">
+            <p class="card-text"><strong>{{ detail.label }}:</strong> {{ detail.value }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #noData>
+      <p class="text-center">No loan application found</p>
+    </ng-template>
+    <div class="text-center mt-4" style="margin-bottom: 15vh;">
+      <button class="btn btn-primary btn-lg" (click)="printDetails()">Print</button>
+    </div>
+</div>

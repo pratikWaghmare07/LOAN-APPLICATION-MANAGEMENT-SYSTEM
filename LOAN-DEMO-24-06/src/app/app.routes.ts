@@ -10,6 +10,7 @@ import { BorrowerloginComponent } from './borrowerlogin/borrowerlogin.component'
 import { OfficerloginComponent } from './officerlogin/officerlogin.component';
 import { BorrowerDashboardComponent } from './borrowerlogin/borrower-dashboard/borrower-dashboard.component';
 import { OfficerDashboardComponent } from './officerlogin/officer-dashboard/officer-dashboard.component';
+import { UserDetailsComponent } from './officerlogin/user-details/user-details.component';
 
 export const APP_ROUTE: Route[] = [
   // {path:'',component:MenuComponent,loadChildren: ()=>import('./Menu/menu.route')}
@@ -28,5 +29,6 @@ export const APP_ROUTE: Route[] = [
   { path: 'officer', component: OfficerloginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'officer-dashboard', component: OfficerDashboardComponent },
+  { path: 'user-details/:id', component: UserDetailsComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];

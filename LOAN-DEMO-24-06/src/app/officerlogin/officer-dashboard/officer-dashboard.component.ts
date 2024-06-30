@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-officer-dashboard',
@@ -12,9 +13,10 @@ import { FormsModule } from '@angular/forms';
 })
 export class OfficerDashboardComponent implements OnInit {
 
-  loanApplications: any[] = []; // Array to hold loan applications
+  loanApplications: any[] = []; // Initialize as an empty array
 
-  constructor(private http: HttpClient) {}
+
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
     // Call method to fetch loan applications when component initializes
@@ -33,4 +35,9 @@ export class OfficerDashboardComponent implements OnInit {
       }
     });
   }
+
+  viewUserDetails(id: string): void {
+    this.router.navigate(['/user-details', id]);
+  }
+
 }

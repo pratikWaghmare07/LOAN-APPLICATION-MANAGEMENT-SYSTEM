@@ -23,7 +23,7 @@ public class LoanApplicationController {
 
     @GetMapping("/{id}")
     public ResponseEntity<LoanApplication> getLoanApplicationById(@PathVariable Long id) {
-        Optional<LoanApplication> loanApplication = service.getLoanApplicationById(id);
+        Optional <LoanApplication> loanApplication = service.getLoanApplicationById(id);
         if (loanApplication.isPresent()) {
             return ResponseEntity.ok(loanApplication.get());
         } else {
