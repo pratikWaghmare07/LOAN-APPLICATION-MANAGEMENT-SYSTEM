@@ -7,12 +7,11 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule,FormsModule,HttpClientModule,ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, HttpClientModule, ReactiveFormsModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
 export class RegisterComponent implements OnInit {
-   
   registerForm: FormGroup;
   registerObj: any = {
     name: '',
@@ -24,7 +23,7 @@ export class RegisterComponent implements OnInit {
   constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
     this.registerForm = this.fb.group({
       name: ['', Validators.required],
-      username: ['', [Validators.required, Validators.email]],
+      username: ['', Validators.required], // Removed email validator
       password: ['', [
         Validators.required,
         Validators.pattern(/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)
@@ -33,8 +32,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onRegister(): void {
     if (this.registerForm.valid) {
@@ -47,8 +45,10 @@ export class RegisterComponent implements OnInit {
           }
         },
         error: (error: HttpErrorResponse) => {
-          if (error.status === 401) {
-            alert("Invalid credentials");
+          if (error.status === 400) {
+            alert("Bad Request: Please check your input fields.");
+          } else if (error.status === 401) {
+            alert("Unauthorized: Invalid credentials");
           } else {
             alert("An error occurred: " + error.message);
           }
@@ -58,6 +58,8 @@ export class RegisterComponent implements OnInit {
       alert("Please fill in all required fields correctly.");
     }
   }
+
+  
 
   // Getter for easier access to form controls in the template
   get formControls() {

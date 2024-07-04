@@ -1,151 +1,231 @@
 <div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <h2 class="text-center" style="margin-top: 40px;">Loan Application Form</h2>
-        <form (ngSubmit)="onSubmit()" #loanForm="ngForm">
-          <h4>Personal Information</h4>
-          <div class="form-group">
-            <label for="fullName">Full Name</label>
-            <input type="text" class="form-control form-control-md" id="fullName" [(ngModel)]="formObj.fullName" name="fullName" required>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h2 class="text-center" style="margin-top: 40px;">Loan Application Form</h2>
+      <form (ngSubmit)="onSubmit()" #loanForm="ngForm">
+        <h4>Personal Information</h4>
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" class="form-control form-control-md" id="fullName" [(ngModel)]="formObj.fullName" name="fullName" required minlength="2" maxlength="50">
+          <div *ngIf="loanForm.controls['fullName']?.invalid && loanForm.controls['fullName'].touched" class="text-danger">
+            Full Name is required (2-50 characters).
           </div>
-          <div class="form-group">
-            <label for="dob">Date of Birth</label>
-            <input type="date" class="form-control form-control-md" id="dob" [(ngModel)]="formObj.dateOfBirth" name="dateOfBirth" required>
+        </div>
+        <div class="form-group">
+          <label for="dob">Date of Birth</label>
+          <input type="date" class="form-control form-control-md" id="dob" [(ngModel)]="formObj.dateOfBirth" name="dateOfBirth" required>
+          <div *ngIf="loanForm.controls['dateOfBirth']?.invalid && loanForm.controls['dateOfBirth']?.touched" class="text-danger">
+            Date of Birth is required.
           </div>
-          <div class="form-group">
-            <label for="gender">Gender</label>
-            <select class="form-control form-control-md" id="gender" [(ngModel)]="formObj.gender" name="gender" required>
-              <option value="" disabled selected>Select</option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Other">Other</option>
-            </select>
+        </div>
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <select class="form-control form-control-md" id="gender" [(ngModel)]="formObj.gender" name="gender" required>
+            <option value="" disabled selected>Select</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+          <div *ngIf="loanForm.controls['gender']?.invalid && loanForm.controls['gender']?.touched" class="text-danger">
+            Gender is required.
           </div>
-          <div class="form-group">
-            <label for="maritalStatus">Marital Status</label>
-            <select class="form-control form-control-md" id="maritalStatus" [(ngModel)]="formObj.maritalStatus" name="maritalStatus" required>
-              <option value="" disabled selected>Select</option>
-              <option value="Single">Single</option>
-              <option value="Married">Married</option>
-              <option value="Divorced">Divorced</option>
-              <option value="Widowed">Widowed</option>
-            </select>
+        </div>
+        <div class="form-group">
+          <label for="maritalStatus">Marital Status</label>
+          <select class="form-control form-control-md" id="maritalStatus" [(ngModel)]="formObj.maritalStatus" name="maritalStatus" required>
+            <option value="" disabled selected>Select</option>
+            <option value="Single">Single</option>
+            <option value="Married">Married</option>
+            <option value="Divorced">Divorced</option>
+            <option value="Widowed">Widowed</option>
+          </select>
+          <div *ngIf="loanForm.controls['maritalStatus']?.invalid && loanForm.controls['maritalStatus']?.touched" class="text-danger">
+            Marital Status is required.
           </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" class="form-control form-control-md" id="email" [(ngModel)]="formObj.emailAddress" name="emailAddress" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" class="form-control form-control-md" id="email" [(ngModel)]="formObj.emailAddress" name="emailAddress" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+          <div *ngIf="loanForm.controls['emailAddress']?.invalid && loanForm.controls['emailAddress']?.touched" class="text-danger">
+            Valid Email Address is required.
           </div>
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" class="form-control form-control-md" id="phone" [(ngModel)]="formObj.phoneNumber" name="phoneNumber" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" class="form-control form-control-md" id="phone" [(ngModel)]="formObj.phoneNumber" name="phoneNumber" required pattern="^\d{10}$">
+          <div *ngIf="loanForm.controls['phoneNumber']?.invalid && loanForm.controls['phoneNumber']?.touched" class="text-danger">
+            Valid 10-digit Phone Number is required.
           </div>
-          <div class="form-group">
-            <label for="address">Street Address</label>
-            <input type="text" class="form-control form-control-md" id="address" [(ngModel)]="formObj.streetAddress" name="streetAddress" required>
+        </div>
+        <div class="form-group">
+          <label for="address">Street Address</label>
+          <input type="text" class="form-control form-control-md" id="address" [(ngModel)]="formObj.streetAddress" name="streetAddress" required minlength="5" maxlength="100">
+          <div *ngIf="loanForm.controls['streetAddress']?.invalid && loanForm.controls['streetAddress'].touched" class="text-danger">
+            Street Address is required (5-100 characters).
           </div>
-          <div class="form-group">
-            <label for="city">City</label>
-            <input type="text" class="form-control form-control-md" id="city" [(ngModel)]="formObj.city" name="city" required>
+        </div>
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" class="form-control form-control-md" id="city" [(ngModel)]="formObj.city" name="city" required minlength="2" maxlength="50">
+          <div *ngIf="loanForm.controls['city']?.invalid && loanForm.controls['city']?.touched" class="text-danger">
+            City is required (2-50 characters).
           </div>
-          <div class="form-group">
-            <label for="state">State</label>
-            <input type="text" class="form-control form-control-md" id="state" [(ngModel)]="formObj.state" name="state" required>
+        </div>
+        <div class="form-group">
+          <label for="state">State</label>
+          <input type="text" class="form-control form-control-md" id="state" [(ngModel)]="formObj.state" name="state" required minlength="2" maxlength="50">
+          <div *ngIf="loanForm.controls['state']?.invalid && loanForm.controls['state']?.touched" class="text-danger">
+            State is required (2-50 characters).
           </div>
-          <div class="form-group">
-            <label for="zip">ZIP Code</label>
-            <input type="text" class="form-control form-control-md" id="zip" [(ngModel)]="formObj.zipCode" name="zipCode" required>
+        </div>
+        <div class="form-group">
+          <label for="zip">ZIP Code</label>
+          <input type="text" class="form-control form-control-md" id="zip" [(ngModel)]="formObj.zipCode" name="zipCode" required pattern="^\d{5,6}$">
+          <div *ngIf="loanForm.controls['zipCode']?.invalid && loanForm.controls['zipCode']?.touched" class="text-danger">
+            Valid ZIP Code is required (5-6 digits).
           </div>
-          <div class="form-group">
-            <label for="pan">PAN Number</label>
-            <input type="text" class="form-control form-control-md" id="pan" [(ngModel)]="formObj.panNumber" name="panNumber" required>
+        </div>
+        <div class="form-group">
+          <label for="pan">PAN Number</label>
+          <input type="text" class="form-control form-control-md" id="pan" [(ngModel)]="formObj.panNumber" name="panNumber" required pattern="^[A-Z]{5}[0-9]{4}[A-Z]{1}$">
+          <div *ngIf="loanForm.controls['panNumber']?.invalid && loanForm.controls['panNumber']?.touched" class="text-danger">
+            Valid PAN Number is required (e.g., ABCDE1234F).
           </div>
-          <div class="form-group">
-            <label for="aadhaar">Aadhaar Number</label>
-            <input type="text" class="form-control form-control-md" id="aadhaar" [(ngModel)]="formObj.aadhaarNumber" name="aadhaarNumber" required>
+        </div>
+        <div class="form-group">
+          <label for="aadhaar">Aadhaar Number</label>
+          <input type="text" class="form-control form-control-md" id="aadhaar" [(ngModel)]="formObj.aadhaarNumber" name="aadhaarNumber" required pattern="^\d{12}$">
+          <div *ngIf="loanForm.controls['aadhaarNumber']?.invalid && loanForm.controls['aadhaarNumber']?.touched" class="text-danger">
+            Valid 12-digit Aadhaar Number is required.
           </div>
-  
-          <h4>Employment Details</h4>
-          <div class="form-group">
-            <label for="employmentStatus">Employment Status</label>
-            <select class="form-control form-control-md" id="employmentStatus" [(ngModel)]="formObj.employmentStatus" name="employmentStatus" required>
-              <option value="" disabled selected>Select</option>
-              <option value="Employed">Employed</option>
-              <option value="Self-employed">Self-employed</option>
-              <option value="Unemployed">Unemployed</option>
-              <option value="Retired">Retired</option>
-            </select>
+        </div>
+
+        <h4>Employment Details</h4>
+        <div class="form-group">
+          <label for="employmentStatus">Employment Status</label>
+          <select class="form-control form-control-md" id="employmentStatus" [(ngModel)]="formObj.employmentStatus" name="employmentStatus" required>
+            <option value="" disabled selected>Select</option>
+            <option value="Employed">Employed</option>
+            <option value="Self-employed">Self-employed</option>
+            <option value="Unemployed">Unemployed</option>
+            <option value="Retired">Retired</option>
+          </select>
+          <div *ngIf="loanForm.controls['employmentStatus']?.invalid && loanForm.controls['employmentStatus']?.touched" class="text-danger">
+            Employment Status is required.
           </div>
-          <div class="form-group">
-            <label for="employerName">Employer Name</label>
-            <input type="text" class="form-control form-control-md" id="employerName" [(ngModel)]="formObj.employerName" name="employerName" required>
+        </div>
+        <div class="form-group">
+          <label for="employerName">Employer Name</label>
+          <input type="text" class="form-control form-control-md" id="employerName" [(ngModel)]="formObj.employerName" name="employerName" required minlength="2" maxlength="50">
+          <div *ngIf="loanForm.controls['employerName']?.invalid && loanForm.controls['employerName']?.touched" class="text-danger">
+            Employer Name is required (2-50 characters).
           </div>
-          <div class="form-group">
-            <label for="employerAddress">Employer Street Address</label>
-            <input type="text" class="form-control form-control-md" id="employerAddress" [(ngModel)]="formObj.employerStreetAddress" name="employerStreetAddress" required>
+        </div>
+        <div class="form-group">
+          <label for="employerAddress">Employer Street Address</label>
+          <input type="text" class="form-control form-control-md" id="employerAddress" [(ngModel)]="formObj.employerStreetAddress" name="employerStreetAddress" required minlength="5" maxlength="100">
+          <div *ngIf="loanForm.controls['employerStreetAddress']?.invalid && loanForm.controls['employerStreetAddress']?.touched" class="text-danger">
+            Employer Street Address is required (5-100 characters).
           </div>
-          <div class="form-group">
-            <label for="employerCity">City</label>
-            <input type="text" class="form-control form-control-md" id="employerCity" [(ngModel)]="formObj.employerCity" name="employerCity" required>
+        </div>
+        <div class="form-group">
+          <label for="employerCity">City</label>
+          <input type="text" class="form-control form-control-md" id="employerCity" [(ngModel)]="formObj.employerCity" name="employerCity" required minlength="2" maxlength="50">
+          <div *ngIf="loanForm.controls['employerCity']?.invalid && loanForm.controls['employerCity']?.touched" class="text-danger">
+            City is required (2-50 characters).
           </div>
-          <div class="form-group">
-            <label for="employerState">State</label>
-            <input type="text" class="form-control form-control-md" id="employerState" [(ngModel)]="formObj.employerState" name="employerState" required>
+        </div>
+        <div class="form-group">
+          <label for="employerState">State</label>
+          <input type="text" class="form-control form-control-md" id="employerState" [(ngModel)]="formObj.employerState" name="employerState" required minlength="2" maxlength="50">
+          <div *ngIf="loanForm.controls['employerState']?.invalid && loanForm.controls['employerState']?.touched" class="text-danger">
+            State is required (2-50 characters).
           </div>
-          <div class="form-group">
-            <label for="employerZip">ZIP Code</label>
-            <input type="text" class="form-control form-control-md" id="employerZip" [(ngModel)]="formObj.employerZipCode" name="employerZipCode" required>
+        </div>
+        <div class="form-group">
+          <label for="employerZip">ZIP Code</label>
+          <input type="text" class="form-control form-control-md" id="employerZip" [(ngModel)]="formObj.employerZipCode" name="employerZipCode" required pattern="^\d{5,6}$">
+          <div *ngIf="loanForm.controls['employerZipCode']?.invalid && loanForm.controls['employerZipCode']?.touched" class="text-danger">
+            Valid ZIP Code is required (5-6 digits).
           </div>
-          <div class="form-group">
-            <label for="jobTitle">Job Title</label>
-            <input type="text" class="form-control form-control-md" id="jobTitle" [(ngModel)]="formObj.jobTitle" name="jobTitle" required>
+        </div>
+        <div class="form-group">
+          <label for="jobTitle">Job Title</label>
+          <input type="text" class="form-control form-control-md" id="jobTitle" [(ngModel)]="formObj.jobTitle" name="jobTitle" required minlength="2" maxlength="50">
+          <div *ngIf="loanForm.controls['jobTitle']?.invalid && loanForm.controls['jobTitle']?.touched" class="text-danger">
+            Job Title is required (2-50 characters).
           </div>
-          <div class="form-group">
-            <label for="annualIncome">Annual Income</label>
-            <input type="number" class="form-control form-control-md" id="annualIncome" [(ngModel)]="formObj.annualIncome" name="annualIncome" required>
+        </div>
+        <div class="form-group">
+          <label for="annualIncome">Annual Income</label>
+          <input type="number" class="form-control form-control-md" id="annualIncome" [(ngModel)]="formObj.annualIncome" name="annualIncome" required min="0">
+          <div *ngIf="loanForm.controls['annualIncome']?.invalid && loanForm.controls['annualIncome']?.touched" class="text-danger">
+            Annual Income is required and must be a positive number.
           </div>
-          <div class="form-group">
-            <label for="workExperience">Work Experience (in years)</label>
-            <input type="number" class="form-control form-control-md" id="workExperience" [(ngModel)]="formObj.workExperience" name="workExperience" required>
+        </div>
+        <div class="form-group">
+          <label for="workExperience">Work Experience (in years)</label>
+          <input type="number" class="form-control form-control-md" id="workExperience" [(ngModel)]="formObj.workExperience" name="workExperience" required min="0">
+          <div *ngIf="loanForm.controls['workExperience']?.invalid && loanForm.controls['workExperience']?.touched" class="text-danger">
+            Work Experience is required and must be a non-negative number.
           </div>
-  
-          <h4>Loan Details</h4>
-          <div class="form-group">
-            <label for="loanAmount">Loan Amount</label>
-            <input type="number" class="form-control form-control-md" id="loanAmount" [(ngModel)]="formObj.loanAmount" name="loanAmount" required>
+        </div>
+
+        <h4>Loan Details</h4>
+        <div class="form-group">
+          <label for="loanAmount">Loan Amount</label>
+          <input type="number" class="form-control form-control-md" id="loanAmount" [(ngModel)]="formObj.loanAmount" name="loanAmount" required min="0">
+          <div *ngIf="loanForm.controls['loanAmount']?.invalid && loanForm.controls['loanAmount']?.touched" class="text-danger">
+            Loan Amount is required and must be a positive number.
           </div>
-          <div class="form-group">
-            <label for="loanPurpose">Loan Purpose</label>
-            <select class="form-control form-control-md" id="loanPurpose" [(ngModel)]="formObj.loanPurpose" name="loanPurpose" required>
-              <option value="" disabled selected>Select</option>
-              <option value="Personal Loan">Personal Loan</option>
-              <option value="Home Loan">Home Loan</option>
-              <option value="Auto Loan">Auto Loan</option>
-            </select>
+        </div>
+        <div class="form-group">
+          <label for="loanPurpose">Loan Purpose</label>
+          <select class="form-control form-control-md" id="loanPurpose" [(ngModel)]="formObj.loanPurpose" name="loanPurpose" required>
+            <option value="" disabled selected>Select</option>
+            <option value="Personal Loan">Personal Loan</option>
+            <option value="Home Loan">Home Loan</option>
+            <option value="Auto Loan">Auto Loan</option>
+          </select>
+          <div *ngIf="loanForm.controls['loanPurpose']?.invalid && loanForm.controls['loanPurpose']?.touched" class="text-danger">
+            Loan Purpose is required.
           </div>
-          <div class="form-group">
-            <label for="loanTenure">Loan Tenure (in years)</label>
-            <input type="number" class="form-control form-control-md" id="loanTenure" [(ngModel)]="formObj.loanTenure" name="loanTenure" required>
+        </div>
+        <div class="form-group">
+          <label for="loanTenure">Loan Tenure (in years)</label>
+          <input type="number" class="form-control form-control-md" id="loanTenure" [(ngModel)]="formObj.loanTenure" name="loanTenure" required min="1" max="30">
+          <div *ngIf="loanForm.controls['loanTenure']?.invalid && loanForm.controls['loanTenure']?.touched" class="text-danger">
+            Loan Tenure is required and must be between 1 and 30 years.
           </div>
-  
-          <h4>Financial Details</h4>
-          <div class="form-group">
-            <label for="bankName">Bank Name</label>
-            <input type="text" class="form-control form-control-md" id="bankName" [(ngModel)]="formObj.bankName" name="bankName" required>
+        </div>
+
+        <h4>Financial Details</h4>
+        <div class="form-group">
+          <label for="bankName">Bank Name</label>
+          <input type="text" class="form-control form-control-md" id="bankName" [(ngModel)]="formObj.bankName" name="bankName" required minlength="2" maxlength="50">
+          <div *ngIf="loanForm.controls['bankName']?.invalid && loanForm.controls['bankName']?.touched" class="text-danger">
+            Bank Name is required (2-50 characters).
           </div>
-          <div class="form-group">
-            <label for="accountNumber">Account Number</label>
-            <input type="text" class="form-control form-control-md" id="accountNumber" [(ngModel)]="formObj.accountNumber" name="accountNumber" required>
+        </div>
+        <div class="form-group">
+          <label for="accountNumber">Account Number</label>
+          <input type="text" class="form-control form-control-md" id="accountNumber" [(ngModel)]="formObj.accountNumber" name="accountNumber" required pattern="^\d{9,18}$">
+          <div *ngIf="loanForm.controls['accountNumber']?.invalid && loanForm.controls['accountNumber']?.touched" class="text-danger">
+            Valid Account Number is required (9-18 digits).
           </div>
-          <div class="form-group">
-            <label for="ifscCode">IFSC Code</label>
-            <input type="text" class="form-control form-control-md" id="ifscCode" [(ngModel)]="formObj.ifscCode" name="ifscCode" required>
+        </div>
+        <div class="form-group">
+          <label for="ifscCode">IFSC Code</label>
+          <input type="text" class="form-control form-control-md" id="ifscCode" [(ngModel)]="formObj.ifscCode" name="ifscCode" required pattern="^[A-Z]{4}0[A-Z0-9]{6}$">
+          <div *ngIf="loanForm.controls['ifscCode']?.invalid && loanForm.controls['ifscCode']?.touched" class="text-danger">
+            Valid IFSC Code is required (e.g., ABCD0123456).
           </div>
-  
-          <div class="text-center">
-            <button type="button" (click)="onSubmit()" class="btn btn-primary">Submit</button>
-          </div>
-        </form>
-      </div>
+        </div>
+
+        <div class="text-center">
+          <button type="button" (click)="onSubmit()" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
     </div>
   </div>
-  
+</div>

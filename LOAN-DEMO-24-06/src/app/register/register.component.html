@@ -1,60 +1,58 @@
 <div class="container mt-5" style="height: 100vh;">
-    <div class="row justify-content-center" style="margin: 26vh auto;">
-      <div class="col-md-6">
-        <h2>Register Borrower</h2>
-        <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
-          <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" formControlName="name" class="form-control" id="name">
-            <div *ngIf="formControls['name'].invalid && (formControls['name'].dirty || formControls['name'].touched)"
-              class="text-danger">
-              <div *ngIf="formControls['name'].errors?.['required']">
-                Name is required.
-              </div>
+  <div class="row justify-content-center" style="margin: 26vh auto;">
+    <div class="col-md-6">
+      <h2>Register Borrower</h2>
+      <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" formControlName="name" class="form-control" id="name">
+          <div *ngIf="formControls['name'].invalid && (formControls['name'].dirty || formControls['name'].touched)"
+            class="text-danger">
+            <div *ngIf="formControls['name'].errors?.['required']">
+              Name is required.
             </div>
           </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Username</label>
-            <input type="email" formControlName="username" class="form-control" id="email">
-            <div *ngIf="formControls['username'].invalid && (formControls['username'].dirty || formControls['username'].touched)"
-              class="text-danger">
-              <div *ngIf="formControls['username'].errors?.['required']">
-                Email is required.
-              </div>
-              <div *ngIf="formControls['username'].errors?.['email']">
-                Please enter a valid email address.
-              </div>
+        </div>
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" formControlName="username" class="form-control" id="username">
+          <div *ngIf="formControls['username'].invalid && (formControls['username'].dirty || formControls['username'].touched)" class="text-danger">
+            <div *ngIf="formControls['username'].errors?.['required']">
+              Username is required.
+            </div>
+            <div *ngIf="formControls['username'].errors?.['usernameTaken']">
+              Username is already taken.
             </div>
           </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" formControlName="password" class="form-control" id="password">
-            <div *ngIf="formControls['password'].invalid && (formControls['password'].dirty || formControls['password'].touched)"
-              class="text-danger">
-              <div *ngIf="formControls['password'].errors?.['required']">
-                Password is required.
-              </div>
-              <div *ngIf="formControls['password'].errors?.['pattern']">
-                Password must contain at least one letter, one number, and one special character ("&#64;", $, !, %, *, ?, &).
-              </div>
+        </div>        
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" formControlName="password" class="form-control" id="password">
+          <div *ngIf="formControls['password'].invalid && (formControls['password'].dirty || formControls['password'].touched)"
+            class="text-danger">
+            <div *ngIf="formControls['password'].errors?.['required']">
+              Password is required.
+            </div>
+            <div *ngIf="formControls['password'].errors?.['pattern']">
+              Password must contain at least one letter, one number, and one special character ("&"&#64;", $, !, %, *, ?, &).
             </div>
           </div>
-          <div class="mb-3">
-            <label for="phone" class="form-label">Phone Number</label>
-            <input type="tel" formControlName="phoneNumber" class="form-control" id="phone">
-            <div *ngIf="formControls['phoneNumber'].invalid && (formControls['phoneNumber'].dirty || formControls['phoneNumber'].touched)"
-              class="text-danger">
-              <div *ngIf="formControls['phoneNumber'].errors?.['required']">
-                Phone number is required.
-              </div>
-              <div *ngIf="formControls['phoneNumber'].errors?.['pattern']">
-                Please enter a valid 10-digit phone number.
-              </div>
+        </div>
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone Number</label>
+          <input type="tel" formControlName="phoneNumber" class="form-control" id="phone">
+          <div *ngIf="formControls['phoneNumber'].invalid && (formControls['phoneNumber'].dirty || formControls['phoneNumber'].touched)"
+            class="text-danger">
+            <div *ngIf="formControls['phoneNumber'].errors?.['required']">
+              Phone number is required.
+            </div>
+            <div *ngIf="formControls['phoneNumber'].errors?.['pattern']">
+              Please enter a valid 10-digit phone number.
             </div>
           </div>
-          <button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary">Register</button>
-        </form>
-      </div>
+        </div>
+        <button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary">Register</button>
+      </form>
     </div>
   </div>
-  
+</div>
