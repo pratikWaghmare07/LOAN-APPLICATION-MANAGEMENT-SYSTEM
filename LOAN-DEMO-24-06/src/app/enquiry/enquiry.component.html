@@ -1,0 +1,37 @@
+<div class="custom-container" style="margin-top: 12vh;">
+    <div class="form-container">
+      <h2 class="text-center mb-4">Loan Enquiry Form</h2>
+      <form [formGroup]="EnquiryForm" (ngSubmit)="onEnquiry()">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" formControlName="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="text" class="form-control" id="address" formControlName="address" placeholder="Enter your address" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone_number">Phone Number</label>
+          <input type="tel" class="form-control" id="phone_number" formControlName="phoneNumber" placeholder="Enter your phone number" required>
+        </div>
+        <div class="form-group">
+          <label for="loan_amount">Loan Amount</label>
+          <input type="number" class="form-control" id="loan_amount" formControlName="loanAmount" placeholder="Enter loan amount" required>
+        </div>
+        <div class="form-group">
+          <label for="loan_purpose">Loan Purpose</label>
+          <input type="text" class="form-control" id="loan_purpose" formControlName="loanPurpose" placeholder="Enter loan purpose" required>
+        </div>
+        <div class="form-group">
+          <label for="pancard">PAN Card</label>
+          <input type="text" class="form-control" id="pancard" formControlName="pancard" placeholder="Enter your PAN card number" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Enquiry</button>
+      </form>
+    </div>
+  </div>
+  

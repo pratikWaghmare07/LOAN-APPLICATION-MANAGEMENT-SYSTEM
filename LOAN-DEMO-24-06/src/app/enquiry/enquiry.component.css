@@ -1,0 +1,14 @@
+.custom-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ensure full viewport height */
+}
+.form-container {
+    max-width: 45vw; /* Adjust max-width as needed */
+    width: 100%;
+    padding: 20px;
+    background: #f8f9fa; /* Light background color */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Optional: Add a subtle shadow */
+}
