@@ -109,16 +109,8 @@ The application will be accessible at `http://localhost:8080`.
    - `amount`
    - `payment_date`
 
-## Contribution
 
-Contributions are welcome! Please fork the repository and submit a pull request with your changes.
 
-## License
+**Developed By:** Pratik Waghmare
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-**Developed By:** Your Name
-
-**Contact:** your.email@example.com
+**Contact:** pratikwaghmare917@gmail.com
