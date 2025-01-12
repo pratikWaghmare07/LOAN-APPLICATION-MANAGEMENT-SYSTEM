@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit {
         },
         error: (error: HttpErrorResponse) => {
           if (error.status === 400) {
-            alert("Bad Request: Please check your input fields.");
+            alert("Username already in use.");
           } else if (error.status === 401) {
             alert("Unauthorized: Invalid credentials");
           } else {
